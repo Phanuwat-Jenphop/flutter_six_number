@@ -11,94 +11,48 @@ class TestPage extends StatefulWidget {
 }
 
 class _TestPageState extends State<TestPage> {
-  var pass = "______"; // state variable
+  var _num = ""; // state variable
 
-  Widget setnum(String number, String textnumber) {
+  Widget buildItem(String number, String title) {
     return InkWell(
       // botton
       onTap: () {
         setState(() {
-          if (pass[0] == "_") {
-            pass = pass.replaceRange(0, 1, number.toString());
-          } else if (pass[1] == "_") {
-            pass = pass.replaceRange(1, 2, number.toString());
-          } else if (pass[2] == "_") {
-            pass = pass.replaceRange(2, 3, number.toString());
-          } else if (pass[3] == "_") {
-            pass = pass.replaceRange(3, 4, number.toString());
-          } else if (pass[4] == "_") {
-            pass = pass.replaceRange(4, 5, number.toString());
-          } else if (pass[5] == "_") {
-            pass = pass.replaceRange(5, 6, number.toString());
-          }
+          _num = number;
         });
       },
 
-      child: Padding(
-        padding: const EdgeInsets.all(8.0),
-        child: Container(
-          width: 100.0,
-          height: 100.0,
-          padding: const EdgeInsets.all(20.0),
-          decoration: BoxDecoration(
-            border: Border.all(
-              color: Colors.black,
-            )
-          ),
-          child: Column(
-            children: [
-              Text(
-                number.toString(),
-                style: TextStyle(
-                  fontWeight: FontWeight.bold, 
-                  fontSize: 20
-                ),
-              ),
-              Text(
-                textnumber,
-                style: TextStyle(
-                  fontSize: 10
-                ),
-              )
-            ],
-          ),
+      child: Container(
+        width: 100.0,
+        padding: const EdgeInsets.symmetric(vertical: 20.0),
+        child: Column(
+          children: [],
         ),
       ),
     );
   }
 
-  
+  buildNumberWithBackground({
+    required String text,
+  }) {
+    return Container(
+      //alignment: Alignment.centerRight,
+      //width: 200.0,  // ปรับความยืด
 
-  Widget Bottondelete(String numtext, int number) {
-    return InkWell(
-      onTap: () {
-        setState(() {
-          pass = "______";
-        });
-      },
-      child: Padding(
-        padding: const EdgeInsets.all(10.0),
-        child: Container(
-          width: 70,
-          height: 70,
-          padding: EdgeInsets.all(10),
-          decoration: BoxDecoration(
-              border: Border.all(
-                color: Colors.white,
-                width: 0,
-              ),
-            ),
-          child: Column(
-            children: [
-              Text(
-                "X",
-                style: TextStyle(
-                  fontSize: 30,
-                  color: Colors.black, 
-                ),
-              ),
-            ],
-          ),
+      padding: EdgeInsets.all(20.0),
+      child: Text(text),
+    );
+  }
+
+  buildUnder(String number,){
+
+    return Scaffold(
+      body: Container(
+        child: Row(
+          children: [
+           
+                  
+          ],
         ),
       ),
     );
@@ -107,10 +61,10 @@ class _TestPageState extends State<TestPage> {
   @override
   Widget build(BuildContext context) {
     var listnum = [
-      setnum("1" , 'one'),setnum("2",'two'),setnum("3",'three'),
-      setnum("4",'four'),setnum("5",'five'),setnum("6",'six'),
-      setnum("7",'seven'),setnum("8",'eight'),setnum("9",'nine'),
-      setnum("0",'zero'),
+      buildItem("1" , 'one'),buildItem("2",'two'),buildItem("3",'three'),
+      buildItem("4",'four'),buildItem("5",'five'),buildItem("6",'six'),
+      buildItem("7",'seven'),buildItem("8",'eight'),buildItem("9",'nine'),
+      buildItem("0",'zero'),
     ];
     
     return Scaffold(
@@ -126,22 +80,15 @@ class _TestPageState extends State<TestPage> {
                   Icons.security,
                   size: 50.0,
                 ),
-                Text(
-                  "PIN LOGIN",
-                  style: TextStyle(
-                    fontSize: 20, 
-                    color: Colors.black
-                  ),
-                ),
+                Text("PIN LOGIN")
               ],
             ),
             Row(
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
                 Text(
-                  pass,
-                  //style: GoogleFonts.poppins(fontSize: 20.0),
-                  style: TextStyle(fontSize: 30.0),
+                  "------",
+                  style: GoogleFonts.poppins(fontSize: 20.0),
                 ),
               ],
             ),
@@ -162,7 +109,7 @@ class _TestPageState extends State<TestPage> {
                       ),
                       onPressed: () {
                         setState(() {
-                          pass = "";
+                          _num = "";
                         });
                       },
                       child: Expanded(
