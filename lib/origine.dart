@@ -3,14 +3,14 @@ import 'dart:html';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 
-class TestPage extends StatefulWidget {
-  const TestPage({super.key});
+class testpage extends StatefulWidget {
+  const testpage({super.key});
 
   @override
-  State<TestPage> createState() => _TestPageState();
+  State<testpage> createState() => _TestPageState();
 }
 
-class _TestPageState extends State<TestPage> {
+class _TestPageState extends State<testpage> {
   var _num = ""; // state variable
 
   Widget buildItem(String number, String title) {

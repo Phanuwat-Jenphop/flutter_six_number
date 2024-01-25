@@ -20,8 +20,9 @@ class MyApp extends StatelessWidget {
         useMaterial3: true,
         scaffoldBackgroundColor: Colors.white,
       ),
-      //home: const TestPage(),
-      home: const Test_page(),
+      home: const TestPage(), // screen
+      //home: const Test_page(),  // pin
+      //hom: const testpage(),  // origin
     );
   }
 }
