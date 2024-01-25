@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_six_number/screen_page.dart';
-// import 'package:flutter_six_number/pin_page.dart';
+// import 'package:flutter_six_number/backupfiles/origine.dart';
+// import 'package:flutter_six_number/backupfiles/pin_page.dart';
+ 
 
 void main() {
   runApp(const MyApp());
